@@ -1,10 +1,10 @@
 /**
   Phonegap DatePicker Plugin
   https://github.com/sectore/phonegap3-ios-datepicker-plugin
-  
+
   Copyright (c) Greg Allen 2011
   Additional refactoring by Sam de Freyssinet
-  
+
   Rewrite by Jens Krause (www.websector.de)
 
   MIT Licensed
@@ -30,15 +30,15 @@ DatePicker.prototype.show = function(options, cb) {
     };
 
     var formatDate = function(date){
-      date = date.getFullYear() 
-            + "-" 
-            + padDate(date.getMonth()+1) 
-            + "-" 
-            + padDate(date.getDate()) 
-            + "T" 
-            + padDate(date.getHours()) 
-            + ":" 
-            + padDate(date.getMinutes()) 
+      date = date.getFullYear()
+            + "-"
+            + padDate(date.getMonth()+1)
+            + "-"
+            + padDate(date.getDate())
+            + "T"
+            + padDate(date.getHours())
+            + ":"
+            + padDate(date.getMinutes())
             + ":00Z";
 
       return date
@@ -78,9 +78,9 @@ DatePicker.prototype.show = function(options, cb) {
     }
     this._callback = cb;
 
-    exec(null, 
-      null, 
-      "DatePicker", 
+    exec(null,
+      null,
+      "DatePicker",
       "show",
       [defaults]
     );
@@ -97,7 +97,17 @@ DatePicker.prototype._dateSelectionCanceled = function() {
         this._callback();
 }
 
-
+/**
+ * dismiss - true to show the ad, false to hide the ad
+ */
+DatePicker.prototype.dismiss = function() {
+    exec(null,
+        null,
+        "DatePicker",
+        "dismiss",
+        []
+    );
+};
 
 var datePicker = new DatePicker();
 module.exports = datePicker;
