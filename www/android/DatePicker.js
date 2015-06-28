@@ -71,6 +71,15 @@ DatePicker.prototype.show = function(options, cb, errCb) {
 	);
 };
 
+DatePicker.prototype.dismiss = function() {
+    cordova.exec(null,
+        null,
+        "DatePickerPlugin",
+        "dismiss",
+        []
+    );
+};
+
 var datePicker = new DatePicker();
 module.exports = datePicker;
 
